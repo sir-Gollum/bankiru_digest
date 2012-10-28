@@ -1,0 +1,17 @@
+From: {{ email_from }}
+To: {{ email_to }}
+MIME-Version: 1.0
+Content-type: text/html; charset=UTF-8
+Subject: banki.ru -- {{ now.strftime('%d.%m.%Y %H:%M') }}
+Date: {{ now.strftime("%d/%m/%Y %H:%M") }}
+
+
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+{{ text }}
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% if name %}
+    <h3>{{ name }} (<a href="{{ url }}">ссылка</a>)</h3>
+{% endif %}
+
+<table style="border: 1px solid black;">
+{% for line in lines %}
+    {% if line.startswith('+') or line.startswith('-') %}
+        {% if line.startswith('+') %}
+        <tr bgcolor="#98ff98">
+            <td style="border: 1px solid black;">
+                {{ line.replace('\t', '</td><td style="border: 1px solid black;">') }}
+            </td>
+        </tr>
+        {% endif %}
+        {% if line.startswith('-') %}
+        <tr bgcolor="#cd5c5c">
+            <td style="border: 1px solid black;">
+                {{ line.replace('\t', '</td><td style="border: 1px solid black;">') }}
+            </td>
+        </tr>
+        {% endif %}
+    {% else %}
+        <tr>
+            <td style="border: 1px solid black;">
+                {{ line.replace('\t', '</td><td style="border: 1px solid black;">') }}
+            </td>
+        </tr>
+    {% endif %}
+{% endfor %}
+</table>
