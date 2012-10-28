@@ -1,0 +1,29 @@
+# coding=utf-8
+DEBUG = False
+EMAIL_FROM = 'somebody@gmail.com'
+EMAIL_PASSWORD = "somebody's password"
+EMAIL_TO = 'your.email@gmail.com'
+EMAIL_IN_ENCODING = 'cp1251'
+EMAIL_OUT_ENCODING = 'utf-8'
+
+IMAP_HOST = 'imap.gmail.com'
+IMAP_PORT = 993
+SMTP_HOST = 'smtp.gmail.com'
+SMTP_PORT = 587
+
+TEMPLATES_DIR = 'templates'
+TEMP_DIR = 'tmp'
+
+DEPOSIT_SEARCH_URLS = (
+    (u'Максимальные ставки в рублях', ''.join([
+        "http://www.banki.ru/products/deposits/search/",
+        "?filter=0&sort_param=percent&sort_order=DESC&PAGESIZE=50",
+        "&sum=%EB%FE%E1%E0%FF&currency=45&period=0&region=%CC%EE%F1%EA%E2%E0",
+        "&capitalization=2&replenishment=2&withdrawable=2",
+        "&SPECIAL_DEPOSIT%5B1%5D=2&SPECIAL_DEPOSIT%5B2%5D=0",
+        "&SPECIAL_DEPOSIT%5B7%5D=2&SPECIAL_DEPOSIT%5B4%5D=2",
+        "&SPECIAL_DEPOSIT%5B5%5D=0&SPECIAL_DEPOSIT%5B6%5D=2",
+        "&SPECIAL_DEPOSIT%5B3%5D=2&SPECIAL_DEPOSIT%5B10%5D=0",
+        "&SPECIAL_DEPOSIT%5B8%5D=2&bankShow=all&bankTop=0#nav_start",
+    ])),
+)

@@ -1,0 +1,7 @@
+*.pyc
+*.log
+settings.py
+
+.venv
+.idea/*
+tmp/*

@@ -1,0 +1,21 @@
+<h2>Обновления форума</h2>
+
+{% set prev_thread = '' %}
+{% for message in messages %}
+    {% if message.thread != prev_thread %}
+        <h3>{{ message.thread }}</h3>
+        {% set prev_thread = message.thread %}
+    {% endif %}
+
+    {{ message.author }} | <a href="{{ message.url }}"> {{ message.datetime.strftime('%d.%m.%Y %H:%M') }} </a>{% if not message.text.startswith('<blockquote') %}<br>{% endif %}
+    {% for message_line in message.text.splitlines() %}
+        {{ message_line }} {% if (not loop.last) and (not '<br>' in message_line) and (not '</blockquote>' in message_line) %}<br>{% endif %}
+    {% endfor %}
+    {% if not loop.last %}<hr>{% else %}<br>{% endif %}
+{% endfor %}
+{% if unprocessable_count %}
+    <br><b>Сообщений не удалось обработать: {{ unprocessable_count }}</b>
+{% endif %}
+{% if exc_count %}
+    <br><b>Ошибок при обработке: {{ exc_count }}</b>
+{% endif %}
